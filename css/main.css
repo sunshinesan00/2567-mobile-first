@@ -31,18 +31,12 @@ figcaption {
 
 [class*='col-'] {
 	float: left;
-	padding-right: 4px;
-	padding-left: 4px;
+	padding-left: 8px;
 	margin-bottom: 8px;
-	
 }
 
 [class*='col-']:first-of-type {
 	padding-left: 0;
-}
-
-[class*='col-']:last-of-type {
-	padding-right: 0;
 }
 
 .row:last-of-type [class*='col-'] {
@@ -88,10 +82,6 @@ figcaption {
 
 .col-1-6 {
 	width: 16.66%;
-}
-
-.col-1-6.col-sm {
-	width: 10000%;
 }
 
 .col-5-6 {
@@ -175,20 +165,17 @@ figcaption {
 }
 
 .blue {
-	background-color: #69C;
+	background-color: #69c;
+}
+
+.gray {
+	background-color: #666;
 }
 
 @media (max-width: 768px) {
-	.col-sm {
-		
-	}
 	
 	.wrapper {
 		width: 85%;
-	}
-	
-	.wrapper .row:nth-child(5) .col-1-4:nth-child(2), .wrapper .row:nth-child(9) .col-1-6:nth-child(3), .col-1-12:nth-child(4), .col-1-12:nth-child(8) {
-		padding-right: 0;
 	}
 	
 	.wrapper .row:nth-child(5) .col-1-4:nth-child(3), .wrapper .row:nth-child(9) .col-1-6:nth-child(4), .col-1-12:nth-child(5), .col-1-12:nth-child(9) {
@@ -197,29 +184,29 @@ figcaption {
 	
 	/*1/6 + 5/6, 1/7, 1/11*/
 	
-	.wrapper .row:nth-child(10) > * , .col-1-7, .col-2-7, .col-5-7, .col-1-11, .col-2-11, .col-9-11 {
+	.col-1-6.col-sm, .col-5-6, .col-1-7, .col-2-7, .col-5-7, .col-1-11, .col-2-11, .col-9-11 {
 		width: 100%;
 		padding: 0;
 	}
 	
-	.wrapper .row:nth-child(5) .col-1-4 {
+	.col-1-4 {
 		width: 50%;
+	}
+	
+	.col-1-4.col-sm {
+		width: 25%;
 	}
 	
 	/*1/6*/
 	
-	.wrapper .row:nth-child(9) .col-1-6 {
+	.col-1-6 {
 		width: 33.33%;
 	}
 	
 	/*1/8*/
 	
-	.wrapper .row:nth-child(13) .col-1-8 {
+	.col-1-8 {
 		width: 25%;
-	}
-	
-	.wrapper .row:nth-child(13) .col-1-8:nth-child(4) {
-		padding-right: 0;
 	}
 	
 	.wrapper .row:nth-child(13) .col-1-8:nth-child(5) {
@@ -232,16 +219,8 @@ figcaption {
 		width: 33.33%;
 	}
 	
-	.col-1-9:nth-child(3) {
-		padding-right: 0;
-	}
-	
 	.col-1-9:nth-child(4) {
 		padding-left: 0;
-	}
-	
-	.col-1-9:nth-child(6) {
-		padding-right: 0;
 	}
 	
 	.col-1-9:nth-child(7) {
@@ -252,10 +231,6 @@ figcaption {
 	
 	.col-1-10 {
 		width: 20%;
-	}
-	
-	.col-1-10:nth-child(5) {
-		padding-right: 0;
 	}
 	
 	.col-1-10:nth-child(6) {
