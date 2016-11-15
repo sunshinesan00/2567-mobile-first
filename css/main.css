@@ -25,6 +25,8 @@
 	5.1 - Text Sizes
 	5.2 - Colors
 	5.3 - Alignments
+6.0 - Media Queries
+	6.1 - Phone Sized
 --------------------------------------------------------------*/
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
@@ -47,7 +49,11 @@ img {
 }
 
 html {
-	font-size: 62.5%;
+	font-size: 62.5%; /*this is size 10px easy to do math with.*/
+}
+
+header, header a, footer, footer a {
+	color: white;
 }
 
 /*--1.1 - Headings------------------------------------------- */
@@ -57,12 +63,11 @@ h1 {
 	margin: 0 0 8px 0;
 }
 
-header {
-	color: white;
-}
-header p:first-of-type {
+/*this is hero typography specifications.*/
+header p:first-of-type { 
 	font-weight: 400;
 	font-size: 4rem;
+	line-height: 4rem;
 	margin: 0;
 }
 
@@ -83,10 +88,22 @@ p {
 a {
 	text-decoration: none;
 	color: black;
+	border-style: solid;
+	border-color: transparent;
+	border-width: 1px;
+	
 }
 
 a:hover {
-	text-decoration: underline;
+	border-bottom-color: black;
+}
+
+body > section:first-of-type .col-1-6 a {
+	border-style: none;
+}
+
+footer div:nth-of-type(3) a:hover {
+	border-bottom-color: white;
 }
 
 
@@ -96,6 +113,7 @@ body > section:nth-of-type(3) a {
 	height: 25px;
 	width: 25px;
 	background-position: 0 0;
+	border-style: none;
 }
 
 body > section:nth-of-type(3) a:first-of-type {
@@ -131,7 +149,6 @@ header a {
 	background-color: #11231e;
 	padding: 10px 25px;
 	margin-top: 15px;
-	color: white;
 	border-width: 2px;
 	border-style: solid;
 	border-color: #11231e;
@@ -186,7 +203,6 @@ body > section:first-of-type {
 .wrapper {
 	width: 70%;
 	margin: 0 auto;
-	/*getridofbackground-color: #CCC;*/
 }
 
 .row:after {
@@ -211,7 +227,9 @@ body > section:nth-of-type(2) img{
 	max-width: 50%;
 }
 
-
+body > section:nth-of-type(3) .wrapper div:nth-child(2) .row { /*generic people section vertical margin between the 2 rows */
+	margin-bottom: 15px;
+}
 
 /*--3.2 - Responsive Skeleton------------------------------------------- */
 
@@ -227,11 +245,6 @@ body > section:nth-of-type(2) img{
 
 [class*='col-']:last-of-type {
 	float: right;
-}
-
-.blue {
-	height: 20px;
-	background-color: #69c;
 }
 
 .col-1-1 {
@@ -362,18 +375,17 @@ body > section:nth-of-type(2) img{
 header {
 	background: url(../img/hero.jpg) no-repeat center center fixed;
   	background-size: cover;
-	padding: 210px 0 30px 0;
+	padding: 200px 0 30px 0;
 }
 
 /*--3.4 - Site Footer------------------------------------------- */
 
 footer, footer a {
 	background-color: #11231e;
-	color: white;
 }
 
 footer .col-5-12, footer p {
-	margin-top: 45px;
+	margin: 45px 0 20px 0;
 }
 
 footer .col-1-6.col-sm {
@@ -394,58 +406,11 @@ body > section:nth-of-type(2) {
 	background-color: #94c18b;
 }
 
-@media (max-width: 768px) {
-	
-	.wrapper {
-		width: 85%;
-	}
-	
-	/*1/6 + 5/6, 1/7, 1/11*/
-	
-	.col-5-6, .col-1-7, .col-2-7, .col-5-7, .col-1-11, .col-2-11, .col-9-11 {
-		width: 100%;
-		padding: 0;
-	}
-	
-	.col-1-4 {
-		width: 50%;
-	}
-	
-	.col-1-4.col-sm {
-		width: 25%;
-	}
-	
-	/*1/6*/
-	
-	.col-1-6 {
-		width: 33.33%;
-	}
-	
-	/*1/8*/
-	
-	.col-1-8 {
-		width: 25%;
-	}
-	
-	/*1/9*/
-	
-	.col-1-9 {
-		width: 33.33%;
-	}
-	
-	/*1/10*/
-	
-	.col-1-10 {
-		width: 20%;
-	}
-	
-	/*1/12*/
-	
-	.col-1-12 {
-		width: 25%;
-	}
-	
-}
+/*--------------------------------------------------------------
+6.0 - Media Queries
+-------------------------------------------------------------- */
+
+/*--6.1 - Phone Sized ------------------------------------------- */
 
 @media (max-width: 480px) {
 
@@ -453,9 +418,10 @@ body > section:nth-of-type(2) {
 		width: 95%;
 	}
 	
+	/*general responsive columns*/
+	
 	.col-1-6 { /*Studio Name logo on Nav bar*/
 		width: 25%;
-		/*Address on footer 1-6, change overall layout of footer for mobile screen.*/
 	}
 	
 	.col-1-6.col-sm {
@@ -482,13 +448,23 @@ body > section:nth-of-type(2) {
 		width: 100%;
 	}
 	
+	.col-1-2.col-sm {
+		width: 50%;
+	}
+	/*header*/
+	
+	header {
+		padding: 80px 0 40px 0;
+	}
+	
 	/*header buttons*/
 	header a {
 		display: block;
 		margin: 15px 0 15px 0;
 	}
 	
-	header li:first-child .button { /*same button width*/
+	/*same button width*/
+	header li:first-child .button { 
 		padding: 10px 36px;
 	}
 	
@@ -510,14 +486,30 @@ body > section:nth-of-type(2) {
 		float: right;
 	}
 	
-	/*generic people descriptions*/
-
-	body > section:nth-of-type(3) .row .col-1-4.col-sm:nth-child(2) {
-				margin-bottom: 60px;
+	footer .col-5-12, footer p {
+		margin: 20px 0 20px 0;
+	}
+	
+	/*team members area*/
+	
+	body > section:nth-of-type(3) .wrapper div:nth-child(2) .row { /*generic people section vertical margin between the 2 rows */
+		margin-bottom: 0px;
+	}
+	
+	body > section:nth-of-type(3) .wrapper div:nth-child(2) .row > div {
+		margin-bottom: 15px;
 	}
 	
 	body > section:nth-of-type(3) .row p {
-				font-size: 1.2rem;
-				line-height: 1.8rem;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	
+	body > section:nth-of-type(3) .row a {
+		margin: 10px 0 35px 0;
+	}
+	
+	body > section:nth-of-type(3) .row > .row:nth-child(2) {
+		padding-left: 0;
 	}
 }
